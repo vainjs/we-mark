@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.action {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  height: 48px;
+  padding: 0 16px;
+  border-bottom: var(--border);
+}
+
+.preview-wrapper {
+  flex: 1 1 0;
+  height: 0;
+  padding: 32px 16px;
+  overflow: auto;
+}
+
+.preview {
+  box-sizing: border-box;
+  height: 100%;
+  margin: 0 auto;
+  border: var(--border);
+  border-radius: 4px;
+  overflow: auto;
+  transition: all 0.3s ease;
+}

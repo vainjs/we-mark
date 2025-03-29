@@ -1,0 +1,13 @@
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* 全局 CSS 变量 */
+:root {
+  --primary-color: #1890ff;
+  --border: 1px solid #e0e0e0;
+}
