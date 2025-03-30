@@ -1,9 +1,8 @@
 import { readTextFile, writeTextFile } from '@tauri-apps/plugin-fs'
-import { type FC, useState, useEffect, useMemo } from 'react'
+import { type FC, useState, useEffect } from 'react'
 import { appDataDir } from '@tauri-apps/api/path'
-import DOMPurify from 'dompurify'
 import { Splitter } from 'antd'
-import { marked } from 'marked'
+import { useMarkdown } from '@/utils/markdown'
 import Toolbar from '@/components/Toolbar'
 import Preview from '@/components/Preview'
 import Editor from '@/components/Editor'
@@ -48,11 +47,7 @@ const Layout: FC<LayoutProps> = (props) => {
     return () => clearTimeout(timer)
   }, [markdown])
 
-  const html = useMemo(() => {
-    const rawHtml = marked(markdown) as string
-    console.log('=======rawHtml=========', rawHtml)
-    return DOMPurify.sanitize(rawHtml)
-  }, [markdown])
+  const html = useMarkdown(markdown, 'default')
 
   return (
     <section className={styles.layout}>
